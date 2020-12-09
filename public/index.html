@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board UI</title>
+    <link rel="stylesheet" href="/build/tailwind.css">
+</head>
+<body>
+    <div class="flex h-screen">
+        <div class="w-64 px-8 py-4 overflow-auto bg-gray-100 border-r border-gray-300">
+            <a href="/">
+                <img src="/img/logo.svg" alt="" class="h-9 w-9">
+            </a>
+            <nav>
+                <h3 class="mt-8 text-sm font-semibold tracking-wide text-gray-500 uppercase">Issues</h3>
+                <div class="mt-2 -mx-3">
+                    <a href="#" class="flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-900 bg-gray-200 rounded-lg">
+                        <span>All</span>
+                        <span class="text-xs text-gray-700">36</span>
+                    </a>
+                </div>
+
+                <div class="mt-2 -mx-3">
+                    <a href="#" class="flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:text-gray-900 hover:bg-gray-200">
+                        <span>Asigned to me</span>
+                        <span class="text-xs text-gray-700">2</span>
+                    </a>
+                </div>
+                <div class="mt-2 -mx-3">
+                    <a href="#" class="flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:text-gray-900 hover:bg-gray-200">
+                        <span>Created by me</span>
+                        <span class="text-xs text-gray-700">1</span>
+                    </a>
+                </div>
+
+                <div class="mt-2 -mx-3">
+                    <a href="#" class="flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:text-gray-900 hover:bg-gray-200">
+                        <span>Archived</span>
+                    </a>
+                </div>
+
+                <h3 class="mt-8 text-sm font-semibold tracking-wide text-gray-500 uppercase">tags</h3>
+                <div class="mt-2 -mx-3">
+                    <a href="#" class="flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:text-gray-900 hover:bg-gray-200">
+                        <span>Bug</span>
+                    </a>
+                </div>
+                <div class="mt-2 -mx-3">
+                    <a href="#" class="flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:text-gray-900 hover:bg-gray-200">
+                        <span>Feature Request</span>
+                    </a>
+                </div>
+                <div class="mt-2 -mx-3">
+                    <a href="#" class="flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:text-gray-900 hover:bg-gray-200">
+                        <span>Marketing</span>
+                    </a>
+                </div>
+                <div class="mt-2 -mx-3">
+                    <a href="#" class="flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:text-gray-900 hover:bg-gray-200">
+                        <span>v2.0</span>
+                    </a>
+                </div>
+                <div class="mt-2 -mx-3">
+                    <a href="#" class="flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:text-gray-900 hover:bg-gray-200">
+                        <span>Enhancement</span>
+                    </a>
+                </div>
+                <div class="mt-2 -mx-3">
+                    <a href="#" class="flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:text-gray-900 hover:bg-gray-200">
+                        <span>Design</span>
+                    </a>
+                </div>
+
+                <button class="flex items-center py-2 pl-2 pr-4 -mx-2 text-sm font-medium text-gray-500 bg-transparent rounded-lg hover:bg-blue-600 hover:text-white focus:outline-none">
+                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                      </svg>
+                      <span class="">New Project</span>
+                </button>
+            </nav>
+        </div>
+        <div class="flex flex-col flex-1 min-w-0 bg-white">
+            <div class="flex-shrink-0 border-b-2 border-gray-200"></div>
+                <header class="px-6 shadow-lg">
+                    <div class="flex items-center justify-between py-3 border-b border-gray-200">
+                        <div class="flex-1">
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                                    <svg class="text-gray-400 w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                                      </svg>
+                                </span>
+                                <input class="block w-full max-w-xs py-2 pl-10 pr-4 text-sm text-gray-900 placeholder-gray-600 border border-gray-300 rounded-full focus:outline-none" type="text" placeholder="Search">
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <button class="focus:outline-none">
+                                <span class="relative">
+                                    <span class="absolute px-1 text-xs text-white bg-red-700 rounded-full -top-1 left-3">3</span>
+                                    <svg class="h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                                      </svg>
+                                </span>
+                            </button>
+                              <button class="ml-4 focus:outline-none">
+                                <img src="/img/femmy.jpg" class="rounded-full w-9 h-9" alt="profile-image">
+                              </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between py-2 border-b border-gray-200">
+                        <div class="flex">
+                            <h2 class="text-2xl font-semibold leading-tight text-gray-900">All Issues</h2>
+                            <div class="flex items-center ml-6">
+                                <span class="-ml-2 border-2 border-white rounded-full">
+                                    <img src="/img/14.jpg" class="object-cover w-8 h-8 rounded-full" alt="">
+                                </span>
+                                <span class="-ml-2 border-2 border-white rounded-full">
+                                    <img src="/img/30.jpg" class="object-cover w-8 h-8 rounded-full" alt="">
+                                </span>
+                                <span class="-ml-2 border-2 border-white rounded-full">
+                                    <img src="/img/27.jpg" class="object-cover w-8 h-8 rounded-full" alt="">
+                                </span>
+                                <span class="-ml-2 border-2 border-white rounded-full">
+                                    <img src="/img/83.jpg" class="object-cover w-8 h-8 rounded-full" alt="">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <span class="inline-flex p-1 mr-5 bg-gray-200 border rounded-md">
+                                <button class="w-10 h-10 px-2 py-1 text-gray-600 focus:outline-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+                                          </svg>
+                                </button>
+                                <button class="w-10 h-10 px-2 py-1 text-gray-600 bg-white rounded-md shadow-md focus:outline-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
+                                      </svg>
+                                </button>
+                            </span>
+                            <button class="flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-600 rounded-md hover:bg-gray-900 focus:outline-none">
+                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                  </svg>
+                                  <span class="">New Issue</span>
+                            </button>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Main -->
+                <div class="flex-1 overflow-auto">
+                    <main class="flex inline-flex p-5">
+                        <div class="flex-shrink-0 p-3 bg-gray-200 rounded-md w-80">
+                            <h3 class="text-sm font-medium text-gray-500">Backlog</h3>
+                            <ul class="mt-2">
+                                <li>
+                                    <a href="#" class="block p-5 bg-white rounded-md shadow">
+                                        <div class="flex justify-between">
+                                            <p class="text-sm font-medium leading-snug text-gray-500">Add discount code to checkout page</p>
+                                            <span>
+                                                <img src="/img/30.jpg" class="w-8 h-8 rounded-full shadow" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-5">
+                                            <span class="text-xs text-gray-400">
+                                                <time datetime="2020-09-14">Sep 14</time>
+                                            </span>
+                                            <span class="flex items-center px-3 py-1 bg-blue-100 rounded-lg">
+                                                <svg class="w-3 h-3 text-blue-400" viewBox="0 0 8 8" fill="currentColor">
+                                                    <circle cx="4" cy="4" r="3"/>
+                                                </svg>
+                                                <span class="ml-2 text-sm leading-tight text-gray-600">Feature Request</span>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mt-3">
+                                    <a href="#" class="block p-5 bg-white rounded-md shadow">
+                                        <div class="flex justify-between">
+                                            <p class="text-sm font-medium leading-snug text-gray-500">Provide documentation on integrations</p>
+                                            <span>
+                                                <img src="/img/30.jpg" class="w-8 h-8 rounded-full shadow" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-5">
+                                            <span class="text-xs text-gray-400">
+                                                <time datetime="2020-09-14">Sep 14</time>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mt-3">
+                                    <a href="#" class="block p-5 bg-white rounded-md shadow">
+                                        <div class="flex justify-between">
+                                            <p class="text-sm font-medium leading-snug text-gray-500">Design shopping cart dropdown</p>
+                                            <span>
+                                                <img src="/img/30.jpg" class="w-8 h-8 rounded-full shadow" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-5">
+                                            <span class="text-xs text-gray-400">
+                                                <time datetime="2020-09-14">Sep 14</time>
+                                            </span>
+                                            <span class="flex items-center px-3 py-1 bg-purple-200 rounded-lg">
+                                                <svg class="w-3 h-3 text-purple-400" viewBox="0 0 8 8" fill="currentColor">
+                                                    <circle cx="4" cy="4" r="3"/>
+                                                </svg>
+                                                <span class="ml-2 text-sm leading-tight text-gray-600">Design</span>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mt-3">
+                                    <a href="#" class="block p-5 bg-white rounded-md shadow">
+                                        <div class="flex justify-between">
+                                            <p class="text-sm font-medium leading-snug text-gray-500">Add discount code to checkout page</p>
+                                            <span>
+                                                <img src="/img/30.jpg" class="w-8 h-8 rounded-full shadow" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-5">
+                                            <span class="text-xs text-gray-400">
+                                                <time datetime="2020-09-14">Sep 14</time>
+                                            </span>
+                                            <span class="flex items-center px-3 py-1 bg-blue-100 rounded-lg">
+                                                <svg class="w-3 h-3 text-blue-400" viewBox="0 0 8 8" fill="currentColor">
+                                                    <circle cx="4" cy="4" r="3"/>
+                                                </svg>
+                                                <span class="ml-2 text-sm leading-tight text-gray-600">Feature Request</span>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                        <div class="flex-shrink-0 p-3 ml-3 bg-gray-200 rounded-md w-80">
+                            <h3 class="text-sm font-medium text-gray-500">Backlog</h3>
+                            <ul class="mt-2">
+                                <li>
+                                    <a href="#" class="block p-5 bg-white rounded-md shadow">
+                                        <div class="flex justify-between">
+                                            <p class="text-sm font-medium leading-snug text-gray-500">Add discount code to checkout page</p>
+                                            <span>
+                                                <img src="/img/30.jpg" class="w-8 h-8 rounded-full shadow" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-5">
+                                            <span class="text-xs text-gray-400">
+                                                <time datetime="2020-09-14">Sep 14</time>
+                                            </span>
+                                            <span class="flex items-center px-3 py-1 bg-blue-100 rounded-lg">
+                                                <svg class="w-3 h-3 text-blue-400" viewBox="0 0 8 8" fill="currentColor">
+                                                    <circle cx="4" cy="4" r="3"/>
+                                                </svg>
+                                                <span class="ml-2 text-sm leading-tight text-gray-600">Feature Request</span>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mt-3">
+                                    <a href="#" class="block p-5 bg-white rounded-md shadow">
+                                        <div class="flex justify-between">
+                                            <p class="text-sm font-medium leading-snug text-gray-500">Provide documentation on integrations</p>
+                                            <span>
+                                                <img src="/img/30.jpg" class="w-8 h-8 rounded-full shadow" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-5">
+                                            <span class="text-xs text-gray-400">
+                                                <time datetime="2020-09-14">Sep 14</time>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mt-3">
+                                    <a href="#" class="block p-5 bg-white rounded-md shadow">
+                                        <div class="flex justify-between">
+                                            <p class="text-sm font-medium leading-snug text-gray-500">Design shopping cart dropdown</p>
+                                            <span>
+                                                <img src="/img/30.jpg" class="w-8 h-8 rounded-full shadow" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-5">
+                                            <span class="text-xs text-gray-400">
+                                                <time datetime="2020-09-14">Sep 14</time>
+                                            </span>
+                                            <span class="flex items-center px-3 py-1 bg-purple-200 rounded-lg">
+                                                <svg class="w-3 h-3 text-purple-400" viewBox="0 0 8 8" fill="currentColor">
+                                                    <circle cx="4" cy="4" r="3"/>
+                                                </svg>
+                                                <span class="ml-2 text-sm leading-tight text-gray-600">Design</span>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block p-5 bg-white rounded-md shadow">
+                                        <div class="flex justify-between">
+                                            <p class="text-sm font-medium leading-snug text-gray-500">Add discount code to checkout page</p>
+                                            <span>
+                                                <img src="/img/30.jpg" class="w-8 h-8 rounded-full shadow" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-5">
+                                            <span class="text-xs text-gray-400">
+                                                <time datetime="2020-09-14">Sep 14</time>
+                                            </span>
+                                            <span class="flex items-center px-3 py-1 bg-blue-100 rounded-lg">
+                                                <svg class="w-3 h-3 text-blue-400" viewBox="0 0 8 8" fill="currentColor">
+                                                    <circle cx="4" cy="4" r="3"/>
+                                                </svg>
+                                                <span class="ml-2 text-sm leading-tight text-gray-600">Feature Request</span>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mt-3">
+                                    <a href="#" class="block p-5 bg-white rounded-md shadow">
+                                        <div class="flex justify-between">
+                                            <p class="text-sm font-medium leading-snug text-gray-500">Provide documentation on integrations</p>
+                                            <span>
+                                                <img src="/img/30.jpg" class="w-8 h-8 rounded-full shadow" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-5">
+                                            <span class="text-xs text-gray-400">
+                                                <time datetime="2020-09-14">Sep 14</time>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mt-3">
+                                    <a href="#" class="block p-5 bg-white rounded-md shadow">
+                                        <div class="flex justify-between">
+                                            <p class="text-sm font-medium leading-snug text-gray-500">Design shopping cart dropdown</p>
+                                            <span>
+                                                <img src="/img/30.jpg" class="w-8 h-8 rounded-full shadow" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-5">
+                                            <span class="text-xs text-gray-400">
+                                                <time datetime="2020-09-14">Sep 14</time>
+                                            </span>
+                                            <span class="flex items-center px-3 py-1 bg-purple-200 rounded-lg">
+                                                <svg class="w-3 h-3 text-purple-400" viewBox="0 0 8 8" fill="currentColor">
+                                                    <circle cx="4" cy="4" r="3"/>
+                                                </svg>
+                                                <span class="ml-2 text-sm leading-tight text-gray-600">Design</span>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mt-3">
+                                    <a href="#" class="block p-5 bg-white rounded-md shadow">
+                                        <div class="flex justify-between">
+                                            <p class="text-sm font-medium leading-snug text-gray-500">Add discount code to checkout page</p>
+                                            <span>
+                                                <img src="/img/30.jpg" class="w-8 h-8 rounded-full shadow" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-5">
+                                            <span class="text-xs text-gray-400">
+                                                <time datetime="2020-09-14">Sep 14</time>
+                                            </span>
+                                            <span class="flex items-center px-3 py-1 bg-blue-100 rounded-lg">
+                                                <svg class="w-3 h-3 text-blue-400" viewBox="0 0 8 8" fill="currentColor">
+                                                    <circle cx="4" cy="4" r="3"/>
+                                                </svg>
+                                                <span class="ml-2 text-sm leading-tight text-gray-600">Feature Request</span>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                        <div class="flex-shrink-0 p-3 ml-3 bg-gray-200 rounded-md w-80">
+                            <h3 class="text-sm font-medium text-gray-500">Backlog</h3>
+                            <ul class="mt-2">
+                                <li>
+                                    <a href="#" class="block p-5 bg-white rounded-md shadow">
+                                        <div class="flex justify-between">
+                                            <p class="text-sm font-medium leading-snug text-gray-500">Add discount code to checkout page</p>
+                                            <span>
+                                                <img src="/img/30.jpg" class="w-8 h-8 rounded-full shadow" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-5">
+                                            <span class="text-xs text-gray-400">
+                                                <time datetime="2020-09-14">Sep 14</time>
+                                            </span>
+                                            <span class="flex items-center px-3 py-1 bg-blue-100 rounded-lg">
+                                                <svg class="w-3 h-3 text-blue-400" viewBox="0 0 8 8" fill="currentColor">
+                                                    <circle cx="4" cy="4" r="3"/>
+                                                </svg>
+                                                <span class="ml-2 text-sm leading-tight text-gray-600">Feature Request</span>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mt-3">
+                                    <a href="#" class="block p-5 bg-white rounded-md shadow">
+                                        <div class="flex justify-between">
+                                            <p class="text-sm font-medium leading-snug text-gray-500">Provide documentation on integrations</p>
+                                            <span>
+                                                <img src="/img/30.jpg" class="w-8 h-8 rounded-full shadow" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-5">
+                                            <span class="text-xs text-gray-400">
+                                                <time datetime="2020-09-14">Sep 14</time>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mt-3">
+                                    <a href="#" class="block p-5 bg-white rounded-md shadow">
+                                        <div class="flex justify-between">
+                                            <p class="text-sm font-medium leading-snug text-gray-500">Design shopping cart dropdown</p>
+                                            <span>
+                                                <img src="/img/30.jpg" class="w-8 h-8 rounded-full shadow" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-5">
+                                            <span class="text-xs text-gray-400">
+                                                <time datetime="2020-09-14">Sep 14</time>
+                                            </span>
+                                            <span class="flex items-center px-3 py-1 bg-purple-200 rounded-lg">
+                                                <svg class="w-3 h-3 text-purple-400" viewBox="0 0 8 8" fill="currentColor">
+                                                    <circle cx="4" cy="4" r="3"/>
+                                                </svg>
+                                                <span class="ml-2 text-sm leading-tight text-gray-600">Design</span>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mt-3">
+                                    <a href="#" class="block p-5 bg-white rounded-md shadow">
+                                        <div class="flex justify-between">
+                                            <p class="text-sm font-medium leading-snug text-gray-500">Add discount code to checkout page</p>
+                                            <span>
+                                                <img src="/img/30.jpg" class="w-8 h-8 rounded-full shadow" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-5">
+                                            <span class="text-xs text-gray-400">
+                                                <time datetime="2020-09-14">Sep 14</time>
+                                            </span>
+                                            <span class="flex items-center px-3 py-1 bg-blue-100 rounded-lg">
+                                                <svg class="w-3 h-3 text-blue-400" viewBox="0 0 8 8" fill="currentColor">
+                                                    <circle cx="4" cy="4" r="3"/>
+                                                </svg>
+                                                <span class="ml-2 text-sm leading-tight text-gray-600">Feature Request</span>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                        <div class="flex-shrink-0 p-3 ml-3 bg-gray-200 rounded-md w-80">
+                            <h3 class="text-sm font-medium text-gray-500">Backlog</h3>
+                            <ul class="mt-2">
+                                <li>
+                                    <a href="#" class="block p-5 bg-white rounded-md shadow">
+                                        <div class="flex justify-between">
+                                            <p class="text-sm font-medium leading-snug text-gray-500">Add discount code to checkout page</p>
+                                            <span>
+                                                <img src="/img/30.jpg" class="w-8 h-8 rounded-full shadow" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-5">
+                                            <span class="text-xs text-gray-400">
+                                                <time datetime="2020-09-14">Sep 14</time>
+                                            </span>
+                                            <span class="flex items-center px-3 py-1 bg-blue-100 rounded-lg">
+                                                <svg class="w-3 h-3 text-blue-400" viewBox="0 0 8 8" fill="currentColor">
+                                                    <circle cx="4" cy="4" r="3"/>
+                                                </svg>
+                                                <span class="ml-2 text-sm leading-tight text-gray-600">Feature Request</span>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mt-3">
+                                    <a href="#" class="block p-5 bg-white rounded-md shadow">
+                                        <div class="flex justify-between">
+                                            <p class="text-sm font-medium leading-snug text-gray-500">Provide documentation on integrations</p>
+                                            <span>
+                                                <img src="/img/30.jpg" class="w-8 h-8 rounded-full shadow" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-5">
+                                            <span class="text-xs text-gray-400">
+                                                <time datetime="2020-09-14">Sep 14</time>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mt-3">
+                                    <a href="#" class="block p-5 bg-white rounded-md shadow">
+                                        <div class="flex justify-between">
+                                            <p class="text-sm font-medium leading-snug text-gray-500">Design shopping cart dropdown</p>
+                                            <span>
+                                                <img src="/img/30.jpg" class="w-8 h-8 rounded-full shadow" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-5">
+                                            <span class="text-xs text-gray-400">
+                                                <time datetime="2020-09-14">Sep 14</time>
+                                            </span>
+                                            <span class="flex items-center px-3 py-1 bg-purple-200 rounded-lg">
+                                                <svg class="w-3 h-3 text-purple-400" viewBox="0 0 8 8" fill="currentColor">
+                                                    <circle cx="4" cy="4" r="3"/>
+                                                </svg>
+                                                <span class="ml-2 text-sm leading-tight text-gray-600">Design</span>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mt-3">
+                                    <a href="#" class="block p-5 bg-white rounded-md shadow">
+                                        <div class="flex justify-between">
+                                            <p class="text-sm font-medium leading-snug text-gray-500">Add discount code to checkout page</p>
+                                            <span>
+                                                <img src="/img/30.jpg" class="w-8 h-8 rounded-full shadow" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-5">
+                                            <span class="text-xs text-gray-400">
+                                                <time datetime="2020-09-14">Sep 14</time>
+                                            </span>
+                                            <span class="flex items-center px-3 py-1 bg-blue-100 rounded-lg">
+                                                <svg class="w-3 h-3 text-blue-400" viewBox="0 0 8 8" fill="currentColor">
+                                                    <circle cx="4" cy="4" r="3"/>
+                                                </svg>
+                                                <span class="ml-2 text-sm leading-tight text-gray-600">Feature Request</span>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </main>
+                </div>
+        </div>
+    </div>
+</body>
+</html>
